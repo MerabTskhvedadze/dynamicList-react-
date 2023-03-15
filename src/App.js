@@ -1,23 +1,28 @@
-import logo from './logo.svg';
+import Card from './components/Card/Card';
 import './App.css';
+import cardData from './cardData';
+import Button from './components/Button/Button';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+    <div className='App'>
+      <div className='sectionHeader'>
+        <h1>Our Channels Review</h1>
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Organically grow the holistic world view of disruptive innovation via
+          workplace diversity and empowerment.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      </div>
+      <div className='cardList'>
+        {cardData.map((item, i) => {
+          return (
+            <Card key={i} img={item.img} title={item.title} desc={item.desc} />
+          );
+        })}
+      </div>
+      <div className='sectionFooter'>
+        <Button className='sectionFooter__btn'>Reveal all channels</Button>
+      </div>
     </div>
   );
 }
